@@ -54,22 +54,36 @@ Message Passing Interface for parallelism.
 
 {\bf Materials and Methods}. This section is dedicated exclusively to describe the input datasets and the contribution by Mr. REYES G\'OMEZ. These datasets include:
 \begin{itemize}
-    \item Real images from one deep field from the Canada France Hawaii Telescope (CFHT).
+    \item Real images from one deep field from the Canada France Hawaii Telescope (CFHT) already available.
     \item Type Ia supernovae light curves already constructed from the CFHT imaging data.
-    \item Simulated data of mock type Ia supernova imposed on real images.
+    \item Simulated data of mock type Ia supernova imposed on real images (this is a new contribution from this thesis).
 \end{itemize}
-Then next subsection describes in detail the supernova detection pipeline. It highlights the author's constribution in one of the three main steps:
+
+Then next subsection describes in detail the supernova detection pipeline. It highlights the author's contribution in each one of the three main steps:
 \begin{itemize}
-    \item Generation of difference images. The main
+    \item Image subtraction. The main
     contribution is the optimization of the procedure and
     parameters that control already existing routines.
-    \item Candidate selection. The main contribution is the method to generate transient candidates and its light curves from the difference images.
+    \item Candidate selection. The main contribution is a new method to generate transient candidates and its light curves from the difference images.
     \item Type Ia supernovae identification. The main 
     contribution is the introduction of goodness-of-fit
-    features (computed from the light curves from the difference images) as an input of a random forest
+    features (computed from the light curves from the difference images) as an input to a random forest
     classifier.
 \end{itemize}
-After such a detailed explanation of the main contributions the authors describes how was performed the evaluation of 
+After such a detailed explanation of the main contributions the authors describes how was performed the impact evaluation:
+\begin{itemize}
+    \item The image subtraction are evaluated by the number of total detections and the percentage of positive/dipole features in those detections. These numbers are compared against the base pipeline.
+    \item The candidate selection process is evaluated by the total number of candidates and compared against the expected values (known both in observations and simulations). The results are also compared against the base pipeline.
+    \item The Type Ia supernova identification is evaluated by performance metrics based on the confusion matrix such as accuracy, precision, recall, F1-score and Receiver-Operating-Characteristic (ROC) curve.
+\end{itemize}
+
+{\bf Results.} This section summarizes the main results of the previous metrics.
+\begin{itemize}
+\item Image subtraction. Working on observational data the new pipeline makes 87042 detections while the base pipeline makes 4215406 detections. Results of the base and new pipeline on the the simulated images are not reported.
+\item Candidate selection. The detections in the new pipeline misses 15\% of the true supernovae reported in observations. The detections in the new pipeline misses 25\% of the simulated supernovae injected in the images. Results from the base pipeline on the simulated images are not reported.
+\item Type Ia supernova identifications. The training and testing set is a mixture of simulated supernovae and real non-supernovae. The are two validations sets: simulated supernovae and real non-supernovae; real supernovae and real non-supernovae. The new goodnes-of-fit features improvements of the order of 0.01 on the F1-score and ROC metric. 
+\end{itemize}
+The processing times for $~13000$ images of $4012\times 2048$ pixels is reported to be $~1100$ minutes on a small cluster of 30 nodes with 800 cores in total. 
 
 
 The strong points of these thesis are:
