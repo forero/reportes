@@ -3,11 +3,11 @@
 \begin{document}
 \title{Report on the thesis document presented by \\
 Juan Pablo REYES G\'OMEZ}
-\author{Written by Jaime E. FORERO ROMERO, PhD,\\
+\author{Report written by Jaime E. FORERO ROMERO, PhD,\\
 Associate Professor\\ Physics Department\\ Universidad de los Andes\\ Colombia}
 \maketitle
 
-The tesis by Juan Pablo REYES G\'OMEZ is entitled \emph{Astronomical image processing from large all-sky photometric surveys for the detection and measurement of type Ia supernovae}. 
+The thesis by Juan Pablo REYES G\'OMEZ is entitled \emph{Astronomical image processing from large all-sky photometric surveys for the detection and measurement of type Ia supernovae}. 
 It presents the author's work on the analysis of astronomical images and showcases its results as a contribution to the science efforts to be made with the upcoming Large Synoptic Survey Telescope (LSST).
 
 The thesis is structured with 7 sections:
@@ -21,79 +21,163 @@ The thesis is structured with 7 sections:
     \item Perspectives (2 pages).
 \end{enumerate}
 
-There are also three appendices at the end. This puts already into a clear perspective that most of the document is dedicated to discuss the Methodology, a summary of the Results and a very short section of Discussion.
-In the following paragraphs I will highlight the most relevant parts of each section.
+There are also three appendices at the end. This puts already into a
+clear perspective that most of the document is dedicated to present
+the Methodology, a summary of the Results and a very short section of Discussion.
 
+I will start by highlighting the most relevant parts of each section to finalize with my overall opinion on the thesis. 
 
-{\bf The Introduction.} This section provides the general astronomical context to explicitly state the problem to be solved (page 11):
+\newpage
+{\bf The Introduction.} This section provides the general astronomical
+context to explicitly state the problem to be solved (page 11): 
 \begin{quote}
-   "To address the problem of supernovae discovery in the LSST era, focusing on their use in cosmology analysis, we propose in this thesis work, to build, optimize and validate an automatic supernova detection pipeline based on the Stack". 
+   "To address the problem of supernovae discovery in the LSST era,
+   focusing on their use in cosmology analysis, we propose in this
+   thesis work, to build, optimize and validate an automatic supernova
+   detection pipeline based on the Stack". 
 \end{quote}
 it then sets as an specific objective (page 13):
 \begin{quote}
-    "Develop an efficient and accurate pipeline, based on the LSST Science Pipelines stack, to detect Type Ia supernova events on astronomical images for the LSST".
+    "Develop an efficient and accurate pipeline, based on the LSST
+    Science Pipelines stack, to detect Type Ia supernova events on
+    astronomical images for the LSST".
 \end{quote}
 
-The section end with a summary of the main methodological contributions and data products resulting from the author's work. 
+The section ends with a summary of the main methodological contributions and data products resulting from the author's work. 
 
+\vspace{1cm}
 {\bf Background.} This section starts by summarizing the
-LSST Science Pipeline stack. Then, it presents the basic
+LSST Science Pipeline software stack. Then, it presents the basic
 transient detection pipeline already written by the LSST
 Data Management team.
 This pipeline implements the Alard and Lupton 1998 (AL98)
-algorithm of image substraction. The two basic operations
-behind the algorithm (image coaddition and substraction)
+algorithm for image subtraction. The two basic operations
+behind the algorithm (image co-addition and subtraction)
 are also briefly presented here. The section then moves on
 onto presenting four already existing  tools that will
 be used later in the document: models of Type Ia
 supernovae, supervised classification using random trees,
-the sofware to generate the supernova light curves and the
+the software to generate the supernova light curves and the
 Message Passing Interface for parallelism.
 
-{\bf Related Work.} This section starts by presenting two kinds of transient events in astronomy: microlensing and supernovae. It then moves on to present other images substraction algorithms different from AL98 and algorihtms already published to distinguish Type Ia supernovae from other types of transients.
+\vspace{1cm}
+{\bf Related Work.} This section starts by presenting two kinds of transient events
+in astronomy: microlensing and supernovae. It then moves on to present other images
+substraction algorithms different from AL98 and algorithms already published to
+distinguish Type Ia supernovae from other types of transients.
 
-{\bf Materials and Methods}. This section is dedicated exclusively to describe the input datasets and the contribution by Mr. REYES G\'OMEZ. These datasets include:
+\vspace{1cm}
+{\bf Materials and Methods}. This section is dedicated exclusively to describe the
+input datasets and the contribution by Mr. REYES G\'OMEZ. These datasets include:
 \begin{itemize}
-    \item Real images from one deep field from the Canada France Hawaii Telescope (CFHT) already available.
-    \item Type Ia supernovae light curves already constructed from the CFHT imaging data.
-    \item Simulated data of mock type Ia supernova imposed on real images (this is a new contribution from this thesis).
+    \item Real images from one deep field from the Canada France Hawaii Telescope
+    (CFHT) (already available).
+    \item Type Ia supernovae light curves constructed from the CFHT imaging data
+    (already available).
+    \item Simulated data of mock type Ia supernova imposed on real images (this is a
+    new contribution from this thesis).
 \end{itemize}
 
-Then next subsection describes in detail the supernova detection pipeline. It highlights the author's contribution in each one of the three main steps:
+The next subsection describes in detail the supernova detection pipeline. 
+It highlights the author's contribution in each one of the three main steps:
 \begin{itemize}
     \item Image subtraction. The main
     contribution is the optimization of the procedure and
     parameters that control already existing routines.
-    \item Candidate selection. The main contribution is a new method to generate transient candidates and its light curves from the difference images.
+    \item Candidate selection. The main contribution is a new method to generate
+    transient candidates and its light curves from the difference images.
     \item Type Ia supernovae identification. The main 
     contribution is the introduction of goodness-of-fit
-    features (computed from the light curves from the difference images) as an input to a random forest
-    classifier.
+    features (computed from the light curves from the difference images) as an input to a random forest classifier.
 \end{itemize}
-After such a detailed explanation of the main contributions the authors describes how was performed the impact evaluation:
+
+After this detailed explanation of the main contributions the author describes how
+the impact evaluation was performed:
+
 \begin{itemize}
-    \item The image subtraction are evaluated by the number of total detections and the percentage of positive/dipole features in those detections. These numbers are compared against the base pipeline.
-    \item The candidate selection process is evaluated by the total number of candidates and compared against the expected values (known both in observations and simulations). The results are also compared against the base pipeline.
-    \item The Type Ia supernova identification is evaluated by performance metrics based on the confusion matrix such as accuracy, precision, recall, F1-score and Receiver-Operating-Characteristic (ROC) curve.
+    \item The image subtraction are evaluated by the number of total detections and
+    the percentage of positive/dipole features in those detections. These numbers are
+    compared against the base pipeline.
+    \item The candidate selection process is evaluated by the total number of
+    candidates and compared against the expected values (known both in observations
+    and simulations). 
+    \item The Type Ia supernova identification is evaluated by performance metrics
+    based on the confusion matrix such as accuracy, precision, recall, F1-score and
+    Receiver-Operating-Characteristic (ROC) curve.
 \end{itemize}
+
+\vspace{1cm}
 
 {\bf Results.} This section summarizes the main results of the previous metrics.
 \begin{itemize}
-\item Image subtraction. Working on observational data the new pipeline makes 87042 detections while the base pipeline makes 4215406 detections. Results of the base and new pipeline on the the simulated images are not reported.
-\item Candidate selection. The detections in the new pipeline misses 15\% of the true supernovae reported in observations. The detections in the new pipeline misses 25\% of the simulated supernovae injected in the images. Results from the base pipeline on the simulated images are not reported.
-\item Type Ia supernova identifications. The training and testing set is a mixture of simulated supernovae and real non-supernovae. The are two validations sets: simulated supernovae and real non-supernovae; real supernovae and real non-supernovae. The new goodnes-of-fit features improvements of the order of 0.01 on the F1-score and ROC metric. 
+\item Image subtraction. Working on observational data the new pipeline makes 87042
+detections while the base pipeline makes 4215406 detections. The percentage of
+residuals labeled as artifacts is lower with the new pipeline. Results on the
+comparison between the new and base pipeline after processing the simulated images
+are not reported.
+\item Candidate selection. The detections in the new pipeline misses 15\% of the true
+supernovae reported in observations. The detections in the new pipeline misses 25\%
+of the simulated supernovae injected in the images. Results from the base pipeline on
+the simulated images are not reported.
+\item Type Ia supernova identifications. The training and testing set is a mixture of
+simulated supernovae and real non-supernovae. The are two validations sets: simulated
+supernovae and real non-supernovae; real supernovae and real non-supernovae. The new
+goodness-of-fit features improvements of the order of 0.01 on the F1-score and ROC
+metric. 
 \end{itemize}
-The processing times for $~13000$ images of $4012\times 2048$ pixels is reported to be $~1100$ minutes on a small cluster of 30 nodes with 800 cores in total. 
+The processing times for $~13000$ images of $4012\times 2048$ pixels
+is reported to be $~1100$ minutes on a small cluster of 30 nodes with
+800 cores in total. 
 
+\vspace{1cm}
+{\bf Discussion}. This chapter summarizes the main results from the previous section.
+The results on Candidate Selection and Type Ia Supernova Identification are compared
+against recent results in the literature. There is also a short subsection describing
+the main difficulties in the development of the thesis.
+
+\vspace{1cm}
+
+{\bf Perspectives}. The final chapter lists some possibilities for future work:
+trying out new machine learning algorithms, generalize to different types of
+transients, using other applications for efficient parallelism and integration of the
+developed software into the LSST stack.
 
 The strong points of these thesis are:
-\begin{itemize}
-    \item Clear document.
-\end{itemize}
+\begin{enumerate}
+    \item The main subject of the thesis is of current interest to the astronomical
+    community.
+    \item The document does a good work summarizing the basic concepts required to
+    understand the contributions of the thesis.
+    \item The main contributions of the thesis are clearly outlined and explained.
+    \item The proposed methods explore new ways to solve a difficult problem.
+    \item The presentation of the results and its validation is clear and easy to
+    grasp.
+\end{enumerate}
 
-The weak points are 
-\begin{itemize}
-    \item SDSS
-\end{itemize}
+The weakest point of the thesis are the following
+\begin{enumerate}
+    \item It is unclear why the new image subtraction algorithm performs worse than the base pipeline at the moment of recovering the known supernovae in observational and simulated data. Furthermore, a higher fraction of missed Type Ia SN in the simulations than in observations ($25\%$ vs $15\%$) is puzzling.
+    \item It is unclear why the new image subtraction algorithm and the base pipeline are not compared to each other in performance on the simulated data.
+    \item It is unclear why the goodness-of-fit features included in the random forest classification give such a poor improvement on the classification metrics using random forests. 
+    \item It is unclear why the non-supernova population in the simulation does not include transients that will certainly appear in the LSST data stream and could be confused with Type Ia supernovae such as: tidal disruption events, Calcium-rich gap transients, Type I Super-luminous supernovae, among others. Related to this, it is puzzling why microlensing events are described in the text but not other kinds of transients highly relevant to the LSST.
+\end{enumerate}
+
+These four points will make it hard to convince the astronomical community that the
+results of this thesis can be considered as an efficient and accurate pipeline to
+detect Type Ia supernova, as it was the intention. 
+In particular, the fourth point makes the comparisons to other published results
+highly optimistic. 
+In other words, the hardest problem for the LSST will be distinguishing Type Ia
+supernova from other types of similar transients, and the present document does not
+make a strong case for that. This could have been addressed with the injection of
+different types of transients into images.
+
+Taking all these point into account I consider that the thesis does a good work at
+tackling a difficult problem and exploring new ways towards its solution. My opinion
+is that this thesis deserves to be presented and defended in front of the jury.
+
+\vspace{2cm}
+Bogot\'a, April 30, 2019.
+
 \end{document}
 
