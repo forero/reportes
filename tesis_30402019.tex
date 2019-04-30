@@ -34,8 +34,52 @@ it then sets as an specific objective (page 13):
     "Develop an efficient and accurate pipeline, based on the LSST Science Pipelines stack, to detect Type Ia supernova events on astronomical images for the LSST".
 \end{quote}
 
-The section end with a summary of the main methodological contributions and data products resuting from the author's work. 
+The section end with a summary of the main methodological contributions and data products resulting from the author's work. 
 
-{\bf Background.} This section starts by summarizing the LSST Science Pipeline stack. Then, it presents the basic transient detection pipeline already written by the LSST Data Management team.
-This pipeline implements the Alard and Lupton 1998 algorithm of image substraction. The two basic operations behind the algorithm (image coaddition and substraction) are also briefly presented here. The section then moves on onto presenting four, already existing,  tools that will be used later in the document: models of Type Ia supernovae, supervised classification using random trees, the sofware to generate the supernova light curves and the Message Passing Interface for parallelization.
+{\bf Background.} This section starts by summarizing the
+LSST Science Pipeline stack. Then, it presents the basic
+transient detection pipeline already written by the LSST
+Data Management team.
+This pipeline implements the Alard and Lupton 1998 (AL98)
+algorithm of image substraction. The two basic operations
+behind the algorithm (image coaddition and substraction)
+are also briefly presented here. The section then moves on
+onto presenting four already existing  tools that will
+be used later in the document: models of Type Ia
+supernovae, supervised classification using random trees,
+the sofware to generate the supernova light curves and the
+Message Passing Interface for parallelism.
+
+{\bf Related Work.} This section starts by presenting two kinds of transient events in astronomy: microlensing and supernovae. It then moves on to present other images substraction algorithms different from AL98 and algorihtms already published to distinguish Type Ia supernovae from other types of transients.
+
+{\bf Materials and Methods}. This section is dedicated exclusively to describe the input datasets and the contribution by Mr. REYES G\'OMEZ. These datasets include:
+\begin{itemize}
+    \item Real images from one deep field from the Canada France Hawaii Telescope (CFHT).
+    \item Type Ia supernovae light curves already constructed from the CFHT imaging data.
+    \item Simulated data of mock type Ia supernova imposed on real images.
+\end{itemize}
+Then next subsection describes in detail the supernova detection pipeline. It highlights the author's constribution in one of the three main steps:
+\begin{itemize}
+    \item Generation of difference images. The main
+    contribution is the optimization of the procedure and
+    parameters that control already existing routines.
+    \item Candidate selection. The main contribution is the method to generate transient candidates and its light curves from the difference images.
+    \item Type Ia supernovae identification. The main 
+    contribution is the introduction of goodness-of-fit
+    features (computed from the light curves from the difference images) as an input of a random forest
+    classifier.
+\end{itemize}
+After such a detailed explanation of the main contributions the authors describes how was performed the evaluation of 
+
+
+The strong points of these thesis are:
+\begin{itemize}
+    \item Clear document.
+\end{itemize}
+
+The weak points are 
+\begin{itemize}
+    \item SDSS
+\end{itemize}
 \end{document}
+
