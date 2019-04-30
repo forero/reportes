@@ -1,4 +1,5 @@
-\documentclass{report}
+\documentclass{article}
+
 \begin{document}
 \title{Report on the thesis document presented by \\
 Juan Pablo REYES G\'OMEZ}
@@ -6,5 +7,35 @@ Juan Pablo REYES G\'OMEZ}
 Associate Professor\\ Physics Department\\ Universidad de los Andes\\ Colombia}
 \maketitle
 
-Juan Pablo REYES G\'OMEZ
+The tesis by Juan Pablo REYES G\'OMEZ is entitled \emph{Astronomical image processing from large all-sky photometric surveys for the detection and measurement of type Ia supernovae}. 
+It presents the author's work on the analysis of astronomical images and showcases its results as a contribution to the science efforts to be made with the upcoming Large Synoptic Survey Telescope (LSST).
+
+The thesis is structured with 7 sections:
+\begin{enumerate}
+    \item Introduction (15 pages).
+    \item Background (17 pages).
+    \item Related Work (9 pages).
+    \item Materials and Methods (27 pages).
+    \item Results (18 pages).
+    \item Discussion (4 pages).
+    \item Perspectives (2 pages).
+\end{enumerate}
+
+There are also three appendices at the end. This puts already into a clear perspective that most of the document is dedicated to discuss the Methodology, a summary of the Results and a very short section of Discussion.
+In the following paragraphs I will highlight the most relevant parts of each section.
+
+
+{\bf The Introduction.} This section provides the general astronomical context to explicitly state the problem to be solved (page 11):
+\begin{quote}
+   "To address the problem of supernovae discovery in the LSST era, focusing on their use in cosmology analysis, we propose in this thesis work, to build, optimize and validate an automatic supernova detection pipeline based on the Stack". 
+\end{quote}
+it then sets as an specific objective (page 13):
+\begin{quote}
+    "Develop an efficient and accurate pipeline, based on the LSST Science Pipelines stack, to detect Type Ia supernova events on astronomical images for the LSST".
+\end{quote}
+
+The section end with a summary of the main methodological contributions and data products resuting from the author's work. 
+
+{\bf Background.} This section starts by summarizing the LSST Science Pipeline stack. Then, it presents the basic transient detection pipeline already written by the LSST Data Management team.
+This pipeline implements the Alard and Lupton 1998 algorithm of image substraction. The two basic operations behind the algorithm (image coaddition and substraction) are also briefly presented here. The section then moves on onto presenting four, already existing,  tools that will be used later in the document: models of Type Ia supernovae, supervised classification using random trees, the sofware to generate the supernova light curves and the Message Passing Interface for parallelization.
 \end{document}
